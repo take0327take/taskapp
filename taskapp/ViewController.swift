@@ -96,7 +96,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             tableView.reloadData()
             
         } else {
-            taskArray = try! Realm().objects(Task).filter("category = '\(categorySerchBar.text!)'")
+//            taskArray = try! Realm().objects(Task).filter("category = '\(categorySerchBar.text!)'")
+            taskArray = try! Realm().objects(Task).filter("category CONTAINS[c] %@",categorySerchBar.text!)
             tableView.reloadData()
             
         }
